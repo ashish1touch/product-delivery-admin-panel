@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+//import Dropdown from 'react-dropdown';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select'
+// import 'react-dropdown/style.css';
 import {
   Grid,
   CircularProgress,
@@ -16,7 +23,7 @@ import classnames from "classnames";
 import useStyles from "./styles";
 
 // logo
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import google from "../../images/google.svg";
 
 // context
@@ -35,12 +42,21 @@ function Login(props) {
   var [nameValue, setNameValue] = useState("");
   var [loginValue, setLoginValue] = useState("");
   var [passwordValue, setPasswordValue] = useState("");
+  var [businessValue, setBusinessValue] = useState("");
+  var [typeValue, setTypeValue] = useState("");
+  //var [categoryValue, setCategoryValue] = useState("");
+  
+//vendor / Admin
+
+// const options = [
+//   'Vendor', 'Admin'
+// ];
 
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        {/* <img src={logo} alt="logo" className={classes.logotypeImage} /> */}
+        <Typography className={classes.logotypeText}>Admin Panel</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
@@ -84,7 +100,7 @@ function Login(props) {
                 value={loginValue}
                 onChange={e => setLoginValue(e.target.value)}
                 margin="normal"
-                placeholder="Email Adress"
+                placeholder="Email Address"
                 type="email"
                 fullWidth
               />
@@ -182,6 +198,95 @@ function Login(props) {
                 fullWidth
               />
               <TextField
+                id="business"
+                InputProps={{
+                  classes: {
+                    underline: classes.textFieldUnderline,
+                    input: classes.textField,
+                  },
+                }}
+                value={businessValue}
+                onChange={e => setBusinessValue(e.target.value)}
+                margin="normal"
+                placeholder="Name of business"
+                type="text"
+                fullWidth
+              />
+              {/* <TextField
+                id="category"
+                InputProps={{
+                  classes: {
+                    underline: classes.textFieldUnderline,
+                    input: classes.textField,
+                  },
+                }}
+                value={categoryValue}
+                onChange={e => setCategoryValue(e.target.value)}
+                margin="normal"
+                placeholder="e.g. FMCG, Electronics, etc."
+                type="text"
+                fullWidth
+              /> */}
+              <FormControl className={classes.formControl}>
+                    <Select 
+                   width={100}
+                   fullWidth
+                    >
+                      <MenuItem value="" disabled>
+                        Type
+                      </MenuItem>
+                      <MenuItem value={10}>Automotive and Transport</MenuItem>
+                      <MenuItem value={20}>Business and Finance</MenuItem>
+                      <MenuItem value={30}>Chemicals and Materials</MenuItem>
+                      <MenuItem value={40}>Consumer Goods and Services</MenuItem>
+                      <MenuItem value={50}>Consumer Electronics</MenuItem>
+                      <MenuItem value={60}>Consumer Services</MenuItem>
+                      <MenuItem value={70}>Household</MenuItem>
+                      <MenuItem value={80}>Media and Entertainment</MenuItem>
+                      <MenuItem value={90}>Personal Care Products</MenuItem>
+                      <MenuItem value={100}>Food and Beverage</MenuItem>
+                      <MenuItem value={110}>Healthcare</MenuItem>
+                      <MenuItem value={120}>Sporting Goods and Equipment</MenuItem>
+
+                      
+                      
+                    </Select>
+                    <FormHelperText>Category</FormHelperText>
+              </FormControl>
+              <TextField
+                id="type"
+                InputProps={{
+                  classes: {
+                    underline: classes.textFieldUnderline,
+                    input: classes.textField,
+                  },
+                }}
+                value={typeValue}
+                onChange={e => setTypeValue(e.target.value)}
+                margin="normal"
+                placeholder="Vendor or Vendor Admin"
+                type="text"
+                fullWidth
+              />
+              
+              {/* <Dropdown options={options} onChange={this._onSelect} value={Option} placeholder="Select an option" /> */}
+
+              <TextField
+                id="address"
+                InputProps={{
+                  classes: {
+                    underline: classes.textFieldUnderline,
+                    input: classes.textField,
+                  },
+                }}
+                value={passwordValue}
+                onChange={e => setPasswordValue(e.target.value)}
+                margin="normal"
+                placeholder="Address"
+                type="text"
+                fullWidth
+              />
+              <TextField
                 id="password"
                 InputProps={{
                   classes: {
@@ -244,12 +349,10 @@ function Login(props) {
             </React.Fragment>
           )}
         </div>
-        <Typography color="primary" className={classes.copyright}>
-          © 2014-2019 Flatlogic, LLC. All rights reserved.
-        </Typography>
       </div>
     </Grid>
   );
 }
 
 export default withRouter(Login);
+
