@@ -7,8 +7,7 @@ import Datatables from '../datatables/DataTables';
 import FormModal from '../../components/Modals/FormModal/FormModal';
 
 const Productlist = (props) => {
-  
-  console.log(props.match.params.id);
+
   const [open, setOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
 

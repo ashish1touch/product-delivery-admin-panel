@@ -2,9 +2,9 @@ const initialState = {
   productFormFields: [
     {
       style: { width: '93%' },
-      type: 'text',
+      type: 'dropdown',
       label: 'Category Name',
-      defaultValue: null,
+      dropdownList: ['Clothes', 'Electronics', 'Household', 'Grocery']
     },
     {
       style: { width: '93%' },

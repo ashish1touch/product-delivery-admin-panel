@@ -49,7 +49,7 @@ function Layout(props) {
               <Route path="/app/tables" component={Tables} />
               <Route path="/app/admins" component={Admin} />
               <Route path="/app/vendors" component={Vendor} />
-              <Route path="/app/category" component={Category} />
+              {/* <Route path="/app/category" component={Category} /> */}
               <Route path="/app/product/:id" component={Product} />
               <Route path="/app/ui/icons" component={Icons} />
               { user_type === 3 && <Route path="/app/order" component={Order} /> }
