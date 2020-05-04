@@ -7,6 +7,10 @@ export default makeStyles((theme) => ({
       width: '46%'
     },
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
   paper: {
     position: 'absolute',
     width: '60%',
